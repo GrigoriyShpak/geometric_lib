@@ -33,7 +33,7 @@ jobs:
         with:
           python-version: 3.13
 
-      - name: Run unit_tests
+      - name: Run unittests
         run: |
           python -m unit_test
       - name: Lint code with flake8
