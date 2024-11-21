@@ -1,100 +1,52 @@
-import unittest
-from calculate import calc
-from math import *
-
-
-class TestCalculate(unittest.TestCase):
-    def test_circle_area(self):
-        fig = "circle"
-        func = "area"
-        size = [1]
-        res = calc(fig, func, size)
-        self.assertEqual(res, pi)
-
-    def test_square_area(self):
-        fig = "square"
-        func = "area"
-        size = [1]
-        res = calc(fig, func, size)
-        self.assertEqual(res, 1)
-
-    def test_triangle_area(self):
-        fig = "triangle"
-        func = "area"
-        size = [5, 12, 13]
-        res = calc(fig, func, size)
-        self.assertEqual(res, 30)
-
-    def test_circle_perimeter(self):
-        fig = "circle"
-        func = "perimeter"
-        size = [1]
-        res = calc(fig, func, size)
-        self.assertEqual(res, 2 * pi)
-
-    def test_square_perimeter(self):
-        fig = "square"
-        func = "perimeter"
-        size = [1]
-        res = calc(fig, func, size)
-        self.assertEqual(res, 4)
-
-    def test_triangle_perimeter(self):
-        fig = "triangle"
-        func = "perimeter"
-        size = [5, 12, 13]
-        res = calc(fig, func, size)
-        self.assertEqual(res, 30)
-
-    def test_wrong_fig(self):  ###
-        fig = "rectangle"
-        func = "area"
-        size = [1]
-        with self.assertRaises(AssertionError):
-            calc(fig, func, size)
-
-    def test_wrong_func(self):  ###
-        fig = "Circle"
-        func = "diagonal"
-        size = [1]
-        with self.assertRaises(AssertionError):
-            calc(fig, func, size)
-
-    def test_wrong_size(self):  ###
-        fig = "square"
-        func = "area"
-        size = [1, 2]
-        with self.assertRaises(AssertionError):
-            calc(fig, func, size)
-
-    def test_neg_size_circle(self):
-        fig = "circle"
-        func = "area"
-        size = [-1]
-        with self.assertRaises(AssertionError):
-            calc(fig, func, size)
-
-    def test_neg_size_square(self):
-        fig = "square"
-        func = "area"
-        size = [-1]
-        with self.assertRaises(AssertionError):
-            calc(fig, func, size)
-
-    def test_neg_size_triangle(self):
-        fig = "square"
-        func = "area"
-        size = [-5, -12, -13]
-        with self.assertRaises(AssertionError):
-            calc(fig, func, size)
-
-    def test_wrong_size_triangle(self):
-        fig = "triangle"
-        func = "area"
-        size = [1, 2, 10]
-        with self.assertRaises(AssertionError):
-            calc(fig, func, size)
-
-
-if __name__ == "__main__":
+import unittest 
+import math 
+import circle 
+import square 
+from calculate import calc 
+ 
+ 
+class TestCalc(unittest.TestCase): 
+ 
+    def testcircleperimeter(self): 
+        result = calc("circle", "perimeter", [5]) 
+        self.assertAlmostEqual(result, 2 * math.pi * 5) 
+ 
+    def testcirclearea(self): 
+        result = calc("circle", "area", [5]) 
+        self.assertAlmostEqual(result, math.pi * 5 * 5) 
+ 
+    def test_square_perimeter(self): 
+        result = calc("square", "perimeter", [5]) 
+        self.assertEqual(result, 4 * 5) 
+ 
+    def test_square_area(self): 
+        result = calc("square", "area", [5]) 
+        self.assertEqual(result, 5 * 5) 
+ 
+    def test_invalid_figure(self): 
+        with self.assertRaises(AssertionError): 
+            calc("triangle", "perimeter", [5]) 
+ 
+    def test_invalid_function(self): 
+        with self.assertRaises(AssertionError): 
+            calc("circle", "volume", [5]) 
+ 
+    def test_invalid_size(self): 
+        with self.assertRaises(TypeError): 
+            calc("circle", "perimeter", [5, 10]) 
+ 
+    def test_negative_radius(self): 
+        with self.assertRaises(ValueError): 
+            calc("circle", "perimeter", [-5]) 
+        with self.assertRaises(ValueError): 
+            calc("circle", "area", [-5]) 
+ 
+    def test_negative_side(self): 
+        with self.assertRaises(ValueError): 
+            calc("square", "perimeter", [-5]) 
+        with self.assertRaises(ValueError): 
+            calc("square", "area", [-5]) 
+ 
+ 
+if __name == "__main": 
     unittest.main()
