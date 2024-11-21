@@ -1,12 +1,10 @@
 def area(a):
     if a < 0:
-        print("incorrect input")
-        exit(-1)
+        raise ValueError("Incorrect input: side length cannot be negative")
     return a * a
 
 
 def perimeter(a):
     if a < 0:
-        print("incorrect input")
-        exit(-1)
+        raise ValueError("Incorrect input: side length cannot be negative")
     return 4 * a
