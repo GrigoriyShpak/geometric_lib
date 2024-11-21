@@ -4,11 +4,11 @@ on:
   push:
     branches:
       - feat/tests
-      - release
+      - release/*
   pull_request:
     branches:
       - feat/tests
-      - release
+      - release/*
       - develop
 
 jobs:
@@ -35,8 +35,8 @@ jobs:
 
       - name: Run unit_tests
         run: |
-          python -m unittest
+          python -m unit_test
       - name: Lint code with flake8
         run: |
           pip install flake8
-          flake8 --ignore=F401
+          flake8 --ignore=F401 .
