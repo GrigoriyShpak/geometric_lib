@@ -3,11 +3,11 @@ name: Tests Workflow
 on:
   push:
     branches:
-      - main
+      - feat/tests
       - release
   pull_request:
     branches:
-      - main
+      - feat/tests
       - release
       - develop
 
