@@ -13,10 +13,10 @@ class CircleTestCase(unittest.TestCase):
 
         radius = -1
 
-        with self.assertRaises(TypeError):
+        with self.assertRaises(ValueError):
             area(radius)
 
-        with self.assertRaises(TypeError):
+        with self.assertRaises(ValueError):
             perimeter(radius)
 
     def test_zero_radius(self):
