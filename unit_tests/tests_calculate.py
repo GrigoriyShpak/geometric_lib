@@ -4,14 +4,13 @@ import circle
 import square
 from calculate import calc
 
-
 class TestCalc(unittest.TestCase):
 
-    def testcircleperimeter(self):
+    def test_circle_perimeter(self):
         result = calc("circle", "perimeter", [5])
         self.assertAlmostEqual(result, 2 * math.pi * 5)
 
-    def testcirclearea(self):
+    def test_circle_area(self):
         result = calc("circle", "area", [5])
         self.assertAlmostEqual(result, math.pi * 5 * 5)
 
@@ -47,6 +46,5 @@ class TestCalc(unittest.TestCase):
         with self.assertRaises(ValueError):
             calc("square", "area", [-5])
 
-
-if __name == "__main":
+if __name__ == "__main__":
     unittest.main()
