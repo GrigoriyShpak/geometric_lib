@@ -7,14 +7,14 @@ sizes = {}
 
 
 def calc(fig, func, size):
-    assert fig in figs
-    assert func in funcs
+    assert fig in figs, f"Figure '{fig}' is not valid."
+    assert func in funcs, f"Function '{func}' is not valid."
 
     result = eval(f"{fig}.{func}(*{size})")
     return result
 
 
-if name == "main":
+if __name__ == "__main__":
     func = ""
     fig = ""
     size = list()
