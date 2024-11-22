@@ -4,6 +4,7 @@ import circle
 import square
 from calculate import calc
 
+
 class TestCalc(unittest.TestCase):
 
     def test_circle_perimeter(self):
@@ -45,6 +46,7 @@ class TestCalc(unittest.TestCase):
             calc("square", "perimeter", [-5])
         with self.assertRaises(ValueError):
             calc("square", "area", [-5])
+
 
 if __name__ == "__main__":
     unittest.main()
