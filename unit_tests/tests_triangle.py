@@ -13,47 +13,47 @@ class RectangleTestCase(unittest.TestCase):
         length = 1
         height = -1
 
-        with self.assertRaises(TypeError):
+        with self.assertRaises(ValueError):
             area(length, height)
 
         length = -1
         height = 1
 
-        with self.assertRaises(TypeError):
+        with self.assertRaises(ValueError):
             area(length, height)
 
         length = -1
         height = -1
 
-        with self.assertRaises(TypeError):
+        with self.assertRaises(ValueError):
             area(length, height)
 
         side_one = 1
         side_two = 1
         side_three = -1
 
-        with self.assertRaises(TypeError):
+        with self.assertRaises(ValueError):
             perimeter(side_one, side_two, side_three)
 
         side_one = 1
         side_two = -1
         side_three = 1
 
-        with self.assertRaises(TypeError):
+        with self.assertRaises(ValueError):
             perimeter(side_one, side_two, side_three)
 
         side_one = -1
         side_two = 1
         side_three = 1
 
-        with self.assertRaises(TypeError):
+        with self.assertRaises(ValueError):
             perimeter(side_one, side_two, side_three)
 
         side_one = -1
         side_two = -1
         side_three = -1
 
-        with self.assertRaises(TypeError):
+        with self.assertRaises(ValueError):
             perimeter(side_one, side_two, side_three)
 
     def test_zero_sides(self):
