@@ -2,11 +2,12 @@ import math
 
 
 def area(r):
-    '''приниает число r, возвращет площадь окружности радиусом r'''
+    if r < 0:
+        raise ValueError("Incorrect input: radius cannot be negative")
     return math.pi * r * r
 
 
 def perimeter(r):
-    '''приниает число r, возвращет периметр круга радиусом r'''
+    if r < 0:
+        raise ValueError("Incorrect input: radius cannot be negative")
     return 2 * math.pi * r
-

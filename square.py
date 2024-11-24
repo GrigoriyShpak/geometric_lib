@@ -1,10 +1,10 @@
-
 def area(a):
-    '''принимает число а, возвращает площадь квадрата с длинной стороны а'''
+    if a < 0:
+        raise ValueError("Incorrect input: side length cannot be negative")
     return a * a
 
 
-
 def perimeter(a):
-    '''принимает число а, возвращает периметр квадрата с длинной стороны а'''
+    if a < 0:
+        raise ValueError("Incorrect input: side length cannot be negative")
     return 4 * a
