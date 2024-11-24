@@ -19,12 +19,10 @@ class TriangleTestCase(unittest.TestCase):
     def test_positive_sides(self):
         a, b, c = 3, 4, 5
         expected_area = 6
-        expected_perimeter = 12
         self.assertAlmostEqual(area(a, b, c), expected_area)
 
     def test_positive_sides(self):
         a, b, c = 3, 4, 5
-        expected_area = 6
         expected_perimeter = 12
         self.assertEqual(perimeter(a, b, c), expected_perimeter)
 
