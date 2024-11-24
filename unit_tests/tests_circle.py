@@ -15,6 +15,10 @@ class CircleTestCase(unittest.TestCase):
 
         with self.assertRaises(ValueError):
             area(radius)
+            
+     def test_negative_radius_area(self):
+
+        radius = -1
 
         with self.assertRaises(ValueError):
             perimeter(radius)
@@ -26,6 +30,12 @@ class CircleTestCase(unittest.TestCase):
         excepted_perimeter = 0
 
         self.assertEqual(area(radius), excepted_area)
+    def test_zero_radius(self):
+
+        radius = 0
+        excepted_area = 0
+        excepted_perimeter = 0
+
         self.assertEqual(perimeter(radius), excepted_perimeter)
 
     def test_positive_radius(self):
@@ -35,4 +45,10 @@ class CircleTestCase(unittest.TestCase):
         excepted_perimeter = 2 * math.pi
 
         self.assertEqual(area(radius), excepted_area)
+    def test_positive_radius(self):
+
+        radius = 1
+        excepted_area = math.pi
+        excepted_perimeter = 2 * math.pi
+
         self.assertEqual(perimeter(radius), excepted_perimeter)
