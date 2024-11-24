@@ -4,6 +4,7 @@ from square import area, perimeter
 
 sys.path.append("..")
 
+
 class SquareTestCase(unittest.TestCase):
 
     def test_negative_side(self):
@@ -39,6 +40,3 @@ class SquareTestCase(unittest.TestCase):
         excepted_area = 1
         excepted_perimeter = 4
         self.assertEqual(perimeter(side), excepted_perimeter)
-
-if __name__ == "__main__":
-    unittest.main()
